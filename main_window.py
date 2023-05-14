@@ -1,9 +1,7 @@
 import sys
-
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
-from PyQt5.QtWidgets import QWidget
-from crypto_system import *
+from systems.crypto_system import *
 
 
 DEFAULT_FILE_SETTINGS = 'files/settings.json'
@@ -57,6 +55,7 @@ class CryptoSystemGUI(QMainWindow):
             QMessageBox.information(
                 self, 'Settings', f'Settings file was not loaded from file {file_name}.'
                 f'The default path was applied.\nPath: {DEFAULT_FILE_SETTINGS}')
+        self.are_settings_loaded = True
 
     def generate_keys(self) -> None:
         """A function that asks the user for the key length and generates keys for encryption,
